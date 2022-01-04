@@ -52,7 +52,7 @@ if (playerHealth <= 0) {
     window.alert(playerName + " still has " + playerHealth + " health left.");
   }
 
-  
+  // if player choses to skip
 } else if (promptFight === "skip" || promptFight ==="SKIP") {
     // confirm player wants to skip
     var confirmSkip = window.confirm("Are you sure you'd like to quit?");
@@ -66,11 +66,17 @@ if (playerHealth <= 0) {
     }
     // if no (false), ask question again by running fight() again
 
-} else {
+ else {
     fight();
 }
-}
+// if player did not chose 1 or 2 in prompt
+} else {
+ window.alert("You need to pick a valid option. Try again!");
 
+}
+};
+
+// run fight function to start game
 fight();
     
 
