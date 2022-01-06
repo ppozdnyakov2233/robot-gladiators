@@ -31,7 +31,7 @@ var fight = function(enemyName) {
       if (confirmSkip) {
           window.alert(playerName + " has decided to skip this fight. Goodbye!");
           // subtract money from playerMoney for skipping
-          playerMoney = playerMoney - 10;
+          playerMoney = Math.max(0, playerMoney - 10);
           console.log("playerMoney", playerMoney);
           break;
       }
@@ -40,7 +40,7 @@ var fight = function(enemyName) {
 
 
     //remove enemy's health by subtracting the amount set in the playerAttack variable
-     enemyHealth = enemyHealth - playerAttack;
+     enemyHealth = Math.max(0, enemyHealth - playerAttack);
      console.log(
     playerName + " attacked " + enemyName + ". " + enemyName + " now has " + enemyHealth + " health remainimg."
 );
@@ -60,7 +60,7 @@ if (enemyHealth <= 0) {
   }
 
     // remove player's health by subtracting the amount set in the enemyAttack variable
-playerHealth = playerHealth - enemyAttack;
+playerHealth = Math.max(0, playerHealth - enemyAttack);
     
     console.log(
 enemyName + " attacked " + playerName + ". " + playerName + " now has " + playerHealth + " health remaining."
@@ -179,6 +179,9 @@ for(var i = 0; i < enemyNames.length; i++) {
                case 'upgrade':
                  if (playerMoney >= 7) {
                    window.alert("Upgading player's attack by 6 for 7 dollars.");
+
+
+                   console.log(Math.PI)
                  
      // increase attack and decrease money
      playerAttack = playerAttack + 6;
