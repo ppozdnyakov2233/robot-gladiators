@@ -9,7 +9,11 @@ var enemyHealth = 50;
 var enemyAttack = 12;
 
 
-  
+  // function to generate a random numeric value
+  var randomNumber = function(min, max) {
+    var value = Math.floor(Math.random() * (max - min + 1) + min);
+    return value;
+  }
     
 
 
@@ -76,6 +80,9 @@ if (playerHealth <= 0) {
     }
     }
     };
+
+
+
     
  // function to start a new game
  var startGame = function() {
@@ -95,7 +102,7 @@ for(var i = 0; i < enemyNames.length; i++) {
     var pickedEnemyName = enemyNames[i];
 
    // reset enemyHealth before starting new fight
-    enemyHealth = 50;
+    enemyHealth = randomNumber(40, 60);
 
 
     // pass the pickedEnemyName variable's value into the fight function, where it will assume the value of the enemyName parameter
